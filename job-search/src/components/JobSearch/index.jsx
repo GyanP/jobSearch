@@ -20,7 +20,7 @@ const JobSearch = (props) => {
 
   useEffect(() => {
     const { title = '' } = parsed;
-    if (parsed && title != '') {
+    if (parsed && title !== '') {
       setIsLoading(true);
       setLoadingMessage(
         'Request is being processed and results will be available shortly.'
