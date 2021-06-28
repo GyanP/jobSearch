@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.d-flex {
+  display: flex;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.align-items-center {
+  align-items: center;
+}
+.flex-flow-wrap {
+  flex-flow: wrap;
+}
+.job-card {
+  width: 18rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.mr-2 {
+  margin-right: 5px;
+}
+.m-0-auto {
+  margin: 0 auto;
+}
