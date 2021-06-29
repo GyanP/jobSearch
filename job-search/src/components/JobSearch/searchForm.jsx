@@ -1,6 +1,6 @@
 import { Button, Card, CardBody, Form, FormGroup, Input } from 'reactstrap';
 import moment from 'moment';
-
+import ImgLoader from '../../assets/loading.gif';
 const SearchForm = ({
   onSubmit,
   onInputChange,
@@ -12,11 +12,12 @@ const SearchForm = ({
 }) => {
   const { title } = searchInputs;
   return (
-    <Card className='mb-1 border-0'>
+    <Card className='mb-1 border-0 bg-none'>
       <CardBody>
+        <h1 className='text-center text-white head'>Welcome to DevJobs</h1>
         <Form onSubmit={onSubmit}>
-          <div className='d-flex'>
-            <FormGroup>
+          <div className='d-flex justify-content-center mb-5'>
+            <FormGroup className='d-flex'>
               <Input
                 type='text'
                 placeholder='Find your dream jobs now'
@@ -25,14 +26,17 @@ const SearchForm = ({
                 onChange={onInputChange}
               />
 
-              <Button color=' fa fa-search'></Button>
+              <Button className='btn btn-success search-btn'>Search</Button>
             </FormGroup>
           </div>
         </Form>
 
-        <div className='d-flex flex-direction-column align-items-center flex-flow-wrap'>
+        <div className=''>
           {isLoading ? (
-            <h6>{loadingMessage}</h6>
+            <>
+              <h3 className='text-center text-white'>{loadingMessage}</h3>
+              <img width='350' src={ImgLoader} className='mx-auto d-block' />
+            </>
           ) : jobResult && jobResult.length > 0 ? (
             jobResult.map((item, index) => {
               return (
@@ -42,14 +46,21 @@ const SearchForm = ({
                   onClick={() => onView(index)}
                 >
                   <div className='card-body'>
-                    <h5 className='card-title'>{item.Title}</h5>
+                    <h5 className='card-title'>
+                      {item.Title}
+                      {localStorage.getItem(`jobApplied-${index}`) ? (
+                        <Button color='secondary' disabled={true}>
+                          {'Applied'}
+                        </Button>
+                      ) : null}
+                    </h5>
                     <h6 className='card-subtitle mb-2 text-muted'>
                       {item.Company}
                     </h6>
                     <p
-                      className='card-text'
+                      className='card-text text-muted'
                       dangerouslySetInnerHTML={{
-                        __html: item.Description.substr(0, 30),
+                        __html: item.Description.substr(0, 100),
                       }}
                     />
                     <p>
@@ -61,9 +72,7 @@ const SearchForm = ({
                 </div>
               );
             })
-          ) : (
-            <h1>no</h1>
-          )}
+          ) : null}
         </div>
       </CardBody>
     </Card>

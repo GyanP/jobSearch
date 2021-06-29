@@ -10,7 +10,7 @@ const ViewForm = ({ jobResult, onApply, appliedStatus, onBack }) => {
           <Row>
             <Col xs={12} md={12} lg={12}>
               <div
-                className='fa fa-angle-left cursor-pointer'
+                className='fa fa-angle-left cursor-pointer mb-3'
                 onClick={() => onBack()}
               />
             </Col>

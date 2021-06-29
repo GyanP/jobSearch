@@ -10,7 +10,7 @@ const initialStates = {
 const JobSearch = (props) => {
   const [searchInputs, setSearchInputs] = useState(initialStates);
   const [jobResult, setJobResult] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState('');
   const {
     location: { search },
@@ -30,6 +30,9 @@ const JobSearch = (props) => {
   }, [search]);
 
   const getData = async (title) => {
+    setSearchInputs({
+      title: title,
+    });
     await axios
       .post(`${process.env.REACT_APP_SERVER_URL}search?query=${title}`)
       .then(async (result) => {
@@ -90,7 +93,14 @@ const JobSearch = (props) => {
     e.preventDefault();
     try {
       const { title } = searchInputs;
-      props.history.push(`/?title=${title}`);
+      if (title.length === 0 || title === '') {
+        setLoadingMessage('');
+        setIsLoading(false);
+        setJobResult([]);
+        props.history.push(`/`);
+      } else {
+        props.history.push(`/?title=${title}`);
+      }
     } catch (error) {}
   };
 

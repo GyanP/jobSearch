@@ -54,6 +54,11 @@
 .job-card {
   width: 18rem;
 }
+.job-card button {
+  margin-left: 7px;
+  font-size: 13px;
+  padding: 4px 4px;
+}
 
 .cursor-pointer {
   cursor: pointer;
@@ -63,4 +68,29 @@
 }
 .m-0-auto {
   margin: 0 auto;
+}
+body {
+  background: url(./assets/image.png) no-repeat 0 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+.card.bg-none {
+  background: none;
+}
+.card-body h1 {
+  margin: 100px 0 50px;
+}
+button.search-btn {
+  margin-left: 10px;
+}
+.job-card {
+  background: #ffff;
+  max-width: 600px;
+  width: 100%;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 1px 1px 20px rgb(0, 0, 0, 0.6);
 }
