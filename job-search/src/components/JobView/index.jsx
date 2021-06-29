@@ -11,6 +11,7 @@ const JobView = (props) => {
 
   useEffect(() => {
     const stringifyData = localStorage.getItem('jobData');
+
     if (stringifyData && JSON.parse(stringifyData).length > 0 && params.id) {
       const data = JSON.parse(stringifyData);
       setJobResult(data[params.id]);
@@ -19,6 +20,7 @@ const JobView = (props) => {
     } else {
       props.history.push('/');
     }
+    // eslint-disable-next-line
   }, []);
 
   /*

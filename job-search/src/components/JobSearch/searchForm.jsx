@@ -35,7 +35,12 @@ const SearchForm = ({
           {isLoading ? (
             <>
               <h3 className='text-center text-white'>{loadingMessage}</h3>
-              <img width='350' src={ImgLoader} className='mx-auto d-block' />
+              <img
+                width='350'
+                src={ImgLoader}
+                className='mx-auto d-block'
+                alt=''
+              />
             </>
           ) : jobResult && jobResult.length > 0 ? (
             jobResult.map((item, index) => {

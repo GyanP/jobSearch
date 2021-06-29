@@ -26,7 +26,7 @@ const JobSearch = (props) => {
         'Request is being processed and results will be available shortly.'
       );
       getData(title);
-    }
+    } // eslint-disable-next-line
   }, [search]);
 
   const getData = async (title) => {
