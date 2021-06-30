@@ -1,6 +1,6 @@
 import { Button, Card, CardBody, Form, FormGroup, Input } from 'reactstrap';
 import moment from 'moment';
-import ImgLoader from '../../assets/loading.gif';
+import ImgLoader from '../../assets/Crop-Circle-Loading.svg';
 const SearchForm = ({
   onSubmit,
   onInputChange,

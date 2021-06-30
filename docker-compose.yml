@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  jobsearch:
+    image: jobsearch
+    build:
+      context: ./job-search
+      dockerfile: ./Dockerfile
+    environment:
+      - REACT_APP_DEBUG=TRUE
+    ports:
+      - 3000:3000
